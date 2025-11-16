@@ -1,30 +1,29 @@
-# Automata App
+# Automaton App
 
-A Python desktop application for creating, visualizing, and analyzing finite state automata (DFA/NFA), combined with an integrated security system including authentication, role management, 2FA, and full activity logging.
+A Python application for creating, visualizing, and analyzing finite state automata (DFA/NFA) with integrated security features.
 
 ## Features
 
 - **Security Features**:
-  - User authentication with bcrypt password hashing
-  - Two-factor authentication (2FA) using TOTP
-  - Role-based access control (RBAC)
-  - Secure password reset functionality
-  - Security and activity logging
-  - JSON-based secure storage
-
+  - User authentication with password hashing
+  - Two-factor authentication (2FA) with setup keys
+  - Role-based access control
+  - Password reset functionality
+  - Security event logging
+  
 - **Automata Tools**:
-  - Create and edit deterministic and nondeterministic automata
+  - Create and edit automata
   - Visual representation of states and transitions
-  - Analyze automata properties (determinism, completeness, accessibility)
+  - Analyze automata properties (determinism, completeness)
   - Convert NFA to DFA
   - Minimize automata
   - Simulate and test words
-  - Perform set operations (union, intersection, complement)
+  - Set operations (union, intersection, complement)
 
 ## System Requirements
 
-- Python 3.7 or higher  
-- Compatible with Windows, macOS, and Linux
+- Python 3.7 or higher
+- Operating Systems: Windows, macOS, or Linux
 
 ## Installation
 
@@ -34,114 +33,107 @@ A Python desktop application for creating, visualizing, and analyzing finite sta
    ```bash
    git clone https://github.com/AdamBelbaraka/Automata_App.git
    cd Automata_App
-Create and activate virtual environment:
+   ```
 
-For Windows:
+2. **Create and activate virtual environment**:
+   
+   For Windows:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+   
+   For macOS/Linux:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
-bash
-Copier le code
-python -m venv venv
-venv\Scripts\activate
-For macOS/Linux:
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-bash
-Copier le code
-python3 -m venv venv
-source vvenv/bin/activate
-Install dependencies:
+### Option 2: Using Conda
 
-bash
-Copier le code
-pip install -r requirements.txt
-Option 2: Using Conda
-Clone repository:
+1. **Clone repository**:
+   ```bash
+   git git clone https://github.com/AdamBelbaraka/Automata_App.gitt
+   cd Automata_App
+   ```
 
-bash
-Copier le code
-git clone https://github.com/AdamBelbaraka/Automata_App.git
-cd Automata_App
-Create and activate conda environment:
+2. **Create and activate conda environment**:
+   ```bash
+   conda create -n automaton_app python=3.9
+   conda activate automaton_app
+   ```
 
-bash
-Copier le code
-conda create -n automata_app python=3.9
-conda activate automata_app
-Install dependencies:
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-bash
-Copier le code
-pip install -r requirements.txt
-Running the Application
+## Running the Application
+
 Start the application:
-
-bash
-Copier le code
+```bash
 python -m gui.main
-No additional setup is required.
+```
 
-Using the Application
-Authentication
-Login: Enter your username and password.
+That's it! No additional setup or installation is needed.
 
-Register: Create a new account.
+## Using the Application
 
-Enable 2FA during registration.
+### Authentication
 
-Add the displayed TOTP secret key to your authenticator app (Google Authenticator, Microsoft Authenticator).
+1. **Login**: Enter your username and password on the login screen
+2. **Register**: Click "Register" to create a new account
+   - Enable 2FA during registration for enhanced security
+   - Copy the displayed secret key into your authenticator app (Google Authenticator, Microsoft Authenticator)
+   - You can use the "Copy Secret Key" button to easily copy the key to your clipboard
+3. **Password Reset**: Click "Forgot Password" if needed
 
-Use the “Copy Secret Key” button to copy the key automatically.
+### Creating and Analyzing Automata
 
-Password Reset: Use "Forgot Password" to generate a secure reset request.
+1. **Automata Tab**: Create and edit automata
+   - Define alphabet
+   - Add states (initial/final)
+   - Create transitions
 
-Creating and Analyzing Automata
-Automata Tab:
+2. **Analysis Tab**: Analyze and transform automata
+   - Check determinism/completeness (considers all states including final states)
+   - Convert NFA to DFA
+   - Minimize automata
 
-Define the alphabet.
+3. **Advanced Tab**: Simulation and set operations
+   - Test words
+   - Generate accepted/rejected words
+   - Perform set operations (union, intersection, complement)
 
-Add states (initial and final).
+## Security Recommendations
 
-Create transitions.
+- Enable 2FA for all accounts
+- Use strong, unique passwords
+- Regularly review the security logs
+- Each user has specific access rights based on their role
 
-Analysis Tab:
+## Project Structure
 
-Check determinism and completeness.
+```
+Automaton_App/
+├── Automates/          # Saved automata
+├── automata/           # Core automata functionality
+├── Security/           # Security module (Authentication, access control, logs, OTP, 2FA ..)
+├── gui/                # GUI components
+│   ├── main.py         # Main application entry
+│   └── pages/          # Application pages
+│   └── widgets/        # Application widgets
+└── requirements.txt    # Dependencies
+```
 
-Convert NFA to DFA.
+## Troubleshooting
 
-Minimize automata.
+- **Login Problems**: Check your username and ensure 2FA code is entered correctly
+- **Automata Operations**: Verify that automata have matching alphabets for set operations
 
-Advanced Tab:
-
-Simulate and test words.
-
-Generate accepted or rejected words.
-
-Apply set operations (union, intersection, complement).
-
-Security Recommendations
-Enable 2FA for all accounts.
-
-Use strong and unique passwords.
-
-Review security logs regularly.
-
-Assign roles and permissions carefully.
-
-Project Structure
-pgsql
-Copier le code
-Automata_App/
-├── Automates/          Saved automata
-├── automata/           Core DFA/NFA functionality
-├── Security/           Security system
-├── gui/                GUI components
-│   ├── main.py         Application entry point
-│   └── pages/          GUI pages
-│   └── widgets/        Custom widgets
-└── requirements.txt    Dependencies
-Troubleshooting
-Login Issues: Check username, password, and 2FA code.
-
-Automata Errors: Ensure automata use the same alphabet for set operations.
-
-If you encounter a problem, feel free to open an issue.
+Feel free to open an issue if you encounter any kind of problem.
