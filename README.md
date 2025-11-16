@@ -64,8 +64,8 @@ A Python application for creating, visualizing, and analyzing finite state autom
 
 2. **Create and activate conda environment**:
    ```bash
-   conda create -n automaton_app python=3.9
-   conda activate automaton_app
+   conda create -n automata_app python=3.9
+   conda activate automata_app
    ```
 
 3. **Install dependencies**:
